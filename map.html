@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Visualisation</title>
+    <link rel="stylesheet" href="/src/style/main_style.css">
+    <link rel="stylesheet" href="/src/style/header.css">
+    <link rel="stylesheet" href="/src/style/content.css">
+</head>
+<body onload="start()">
+<header>
+    <div id="blue_team_name_div" class="header_div">
+        <span id="blue_team_name">Команда синих</span>
+        <span id="blue_team_balls">Баллы: </span>
+    </div>
+    <div id="time_div" class="header_div">
+        <span id="time">10:00</span>
+    </div>
+    <div id="red_team_name_div" class="header_div">
+        <span id="red_team_name">Команда красных</span>
+        <span id="red_team_balls">Баллы: </span>
+    </div>
+</header>
+
+<div class="content">
+
+    <canvas id="map_canvas"></canvas>
+
+
+    <div id="blue_team_div">
+        <div id="blue_player1_div" class="blue_player_div">
+            <span id="blue_player1_name" class="player_name">Игрок 1</span>
+            <span id="blue_player1_balls" class="player_balls">Баллы:</span>
+            <span class="repair_marker">В ремонте</span>
+            <img class="drone_img" src="./src/img/blue_drone.png">
+            <img class="box_img" src="./src/img/green_box.png">
+            <div class="bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+        </div>
+        <div id="blue_player2_div" class="blue_player_div">
+            <span id="blue_player2_name" class="player_name">Игрок 2</span>
+            <span id="blue_player2_balls" class="player_balls">Баллы:</span>
+            <span class="repair_marker">В ремонте</span>
+            <img class="drone_img" src="./src/img/blue_drone.png">
+            <img class="box_img" src="./src/img/green_box.png">
+            <div class="bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+        </div>
+        <div id="blue_player3_div" class="blue_player_div">
+            <span id="blue_player3_name" class="player_name">Игрок 3</span>
+            <span id="blue_player3_balls" class="player_balls">Баллы:</span>
+            <span class="repair_marker">В ремонте</span>
+            <img class="drone_img" src="./src/img/blue_drone.png">
+            <img class="box_img" src="./src/img/green_box.png">
+            <div class="bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+        </div>
+        <div id="blue_player4_div" class="blue_player_div">
+            <span id="blue_player4_name" class="player_name">Игрок 4</span>
+            <span id="blue_player4_balls" class="player_balls">Баллы:</span>
+            <span class="repair_marker">В ремонте</span>
+            <img class="drone_img" src="./src/img/blue_drone.png">
+            <img class="box_img" src="./src/img/green_box.png">
+            <div class="bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+        </div>
+    </div>
+
+    <div id="red_team_div">
+        <div id="red_player1_div" class="red_player_div">
+            <span id="red_player1_name" class="player_name">Игрок 1</span>
+            <span id="red_player1_balls" class="player_balls">Баллы:</span>
+            <span class="repair_marker">В ремонте</span>
+            <img class="drone_img" src="./src/img/red_drone.png">
+            <img class="box_img" src="./src/img/green_box.png">
+            <div class="bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+        </div>
+        <div id="red_player2_div" class="red_player_div">
+            <span id="red_player2_name" class="player_name">Игрок 2</span>
+            <span id="red_player2_balls" class="player_balls">Баллы:</span>
+            <span class="repair_marker">В ремонте</span>
+            <img class="drone_img" src="./src/img/red_drone.png">
+            <img class="box_img" src="./src/img/green_box.png">
+            <div class="bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+        </div>
+        <div id="red_player3_div" class="red_player_div">
+            <span id="red_player3_name" class="player_name">Игрок 3</span>
+            <span id="red_player3_balls" class="player_balls">Баллы:</span>
+            <span class="repair_marker">В ремонте</span>
+            <img class="drone_img" src="./src/img/red_drone.png">
+            <img class="box_img" src="./src/img/green_box.png">
+            <div class="bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+        </div>
+        <div id="red_player4_div" class="red_player_div">
+            <span id="red_player4_name" class="player_name">Игрок 4</span>
+            <span id="red_player4_balls" class="player_balls">Баллы:</span>
+            <span class="repair_marker">В ремонте</span>
+            <img class="drone_img" src="./src/img/red_drone.png">
+            <img class="box_img" src="./src/img/green_box.png">
+            <div class="bullet_div">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+                <img class="bullet_img" src="./src/img/bullet.png">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="img_container">
+    <img id="blue_drone" src="./src/img/blue_drone.png">
+    <img id="blue_car" src="./src/img/blue_car.png">
+    <img id="red_drone" src="./src/img/red_drone.png">
+    <img id="red_car" src="./src/img/red_car.png">
+    <img id="box" src="./src/img/box.png">
+    <img id="start5" src="./src/img/StartRed1.png">
+    <img id="start6" src="./src/img/StartRed2.png">
+    <img id="start7" src="./src/img/StartRed3.png">
+    <img id="start8" src="./src/img/StartRed4.png">
+    <img id="start1" src="./src/img/StartBlue1.png">
+    <img id="start2" src="./src/img/StartBlue2.png">
+    <img id="start3" src="./src/img/StartBlue3.png">
+    <img id="start4" src="./src/img/StartBlue4.png">
+    <img id="_box" src="./src/img/box.png">
+    <img id="fabric" src="./src/img/fabric.png">
+    <img id="blue_box" src="./src/img/blue_box.png">
+    <img id="green_box" src="./src/img/green_box.png">
+    <img id="red_box" src="./src/img/red_box.png">
+    <img id="yellow_box" src="./src/img/yellow_box.png">
+    <img id="orange_box" src="./src/img/orange_box.png">
+    <img id="charger" src="./src/img/charger.png">
+
+</div>
+
+<script src="/src/js/map_resize.js"></script>
+<script src="/src/js/createjs.min.js"></script>
+<script src="/src/js/jquery.min.js"></script>
+<script src="/src/js/map_utils.js"></script>
+<script src="/src/js/info_utils.js"></script>
+<script src="/src/js/template.js"></script>
+</body>
+</html>
