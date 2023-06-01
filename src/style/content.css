@@ -80,13 +80,14 @@
     position: absolute;
     right: 0;
     bottom: 15%;
-    width: 40%;
+    width: 50%;
     height: 50%;
 }
 
 .bullet_img{
     position: marker;
-    width: 30%;
+    width: 25%;
+    display: marker;
 }
 
 .player_name{

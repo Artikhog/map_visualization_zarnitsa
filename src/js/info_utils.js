@@ -18,7 +18,6 @@ class InformationPanel{
         for (let i = 0; i < 4; i++) {
             this.player_panels.push(new Player_Panel('red', i))
         }
-        console.log(this.player_panels)
     }
     update_panels(blue_players_data, red_players_data) {
         const blue_players_data_array = Object.values(blue_players_data)
@@ -48,7 +47,7 @@ class Player_Panel{
         this.set_drone(player_data.name_object_controll, player_data.is_connected);
         this.set_bullet(player_data.bullet);
         this.set_box(player_data.color_cargo, player_data.is_cargo);
-        this.set_repair(player_data.repair)
+        this.set_repair(player_data.repair, player_data.is_connected)
     }
     set_drone(type, is_connected) {
         if (is_connected) {
@@ -78,6 +77,9 @@ class Player_Panel{
         }
     }
     set_bullet(bullet_number) {
+        for (let i = 0; i < bullet_number; i++) {
+            this.bullet_image_array[i].style.display = "marker";
+        }
         for (let i = bullet_number; i < 3; i++) {
             this.bullet_image_array[i].style.display = "none";
         }
@@ -92,17 +94,25 @@ class Player_Panel{
         }
         console.log(is_cargo)
     }
-    set_repair(is_repair) {
+    set_repair(is_repair, is_connected) {
+        console.log(is_repair, is_connected)
         if (is_repair) {
             this.player_div.style.background = 'rgba(0, 0, 0, 0.5)';
             this.player_div.style.border = '4px solid rgba(0, 0, 0, 0.25)';
             this.repair_marker.style.display = 'block';
+            this.repair_marker.innerHTML = 'В ремонте';
+        }
+        else if (!is_connected) {
+            this.player_div.style.background = 'rgba(0, 0, 0, 0.5)';
+            this.player_div.style.border = '4px solid rgba(0, 0, 0, 0.25)';
+            this.repair_marker.style.display = 'block';
+            this.repair_marker.innerHTML = 'Нет соединения';
         } else if (this.team_color === 'red') {
-            this.player_div.style.background = 'rgba(255, 64, 64, 0.5)';
+            this.player_div.style.background = 'rgba(255, 0, 0, 0.5)';
             this.player_div.style.border = '4px solid #FF0000';
             this.repair_marker.style.display = 'none';
         } else if (this.team_color === 'blue') {
-            this.player_div.style.background = 'rgba(79, 0, 251, 0.5)';
+            this.player_div.style.background = 'rgba(0, 0, 251, 0.5)';
             this.player_div.style.border = '4px solid #5000FF';
             this.repair_marker.style.display = 'none';
         }
