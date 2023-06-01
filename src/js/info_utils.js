@@ -43,7 +43,7 @@ class Player_Panel{
         this.repair_marker = this.player_div.getElementsByClassName('repair_marker')[0]
     }
     set_data(player_data) {
-        this.points.innerText = `Баллы: ${player_data.balls}`;
+        this.points.innerText = `${player_data.balls}`;
         this.set_drone(player_data.name_object_controll, player_data.is_connected);
         this.set_bullet(player_data.bullet);
         this.set_box(player_data.color_cargo, player_data.is_cargo);
@@ -78,10 +78,10 @@ class Player_Panel{
     }
     set_bullet(bullet_number) {
         for (let i = 0; i < bullet_number; i++) {
-            this.bullet_image_array[i].style.display = "marker";
+            this.bullet_image_array[i].style.width = '25%';
         }
         for (let i = bullet_number; i < 3; i++) {
-            this.bullet_image_array[i].style.display = "none";
+            this.bullet_image_array[i].style.width = '0';
         }
     }
     set_box(box_color_array, is_cargo) {
@@ -92,10 +92,8 @@ class Player_Panel{
         else {
             this.box_image.style.display = "none";
         }
-        console.log(is_cargo)
     }
     set_repair(is_repair, is_connected) {
-        console.log(is_repair, is_connected)
         if (is_repair) {
             this.player_div.style.background = 'rgba(0, 0, 0, 0.5)';
             this.player_div.style.border = '4px solid rgba(0, 0, 0, 0.25)';

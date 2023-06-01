@@ -39,8 +39,8 @@ function get_info(map, info_panel) {
             const team_value = Object.values(res.data.team_info)
             const polygon_value = Object.values(res.data.polygon_info)
 
-            document.getElementById('blue_team_balls').innerText = `Баллы: ${team_value[0].balls_team}`
-            document.getElementById('red_team_balls').innerText = `Баллы: ${team_value[1].balls_team}`
+            document.getElementById('blue_team_balls').innerText = `${team_value[0].balls_team}`
+            document.getElementById('red_team_balls').innerText = `${team_value[1].balls_team}`
             document.getElementById('time').innerText = res.data.server_info.gameTime
 
                 map.parse_data(team_value[0].players, team_value[1].players, polygon_value);
@@ -82,3 +82,4 @@ function resize_map() {
     // map_canvas.style.width = size+"px";
     // map_canvas.style.height = size+"px";
 }
+

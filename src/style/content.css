@@ -1,7 +1,8 @@
 .content span{
     position: absolute;
     font-style: normal;
-    font-size: 1.5em;
+    font-weight: 600;
+    font-size: 1.8em;
 
     color: #000000;
 }
@@ -87,7 +88,6 @@
 .bullet_img{
     position: marker;
     width: 25%;
-    display: marker;
 }
 
 .player_name{
