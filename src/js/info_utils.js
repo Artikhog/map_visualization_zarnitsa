@@ -47,7 +47,7 @@ class Player_Panel{
         this.set_drone(player_data.name_object_controll, player_data.is_connected);
         this.set_bullet(player_data.bullet);
         this.set_box(player_data.color_cargo, player_data.is_cargo);
-        this.set_repair(player_data.repair, player_data.is_connected)
+        this.set_repair(player_data.repair, player_data.is_connected);
     }
     set_drone(type, is_connected) {
         if (is_connected) {
@@ -101,12 +101,14 @@ class Player_Panel{
             this.player_div.style.border = '4px solid rgba(0, 0, 0, 0.25)';
             this.repair_marker.style.display = 'block';
             this.repair_marker.innerHTML = 'В ремонте';
+            this.set_bullet(0);
         }
         else if (!is_connected) {
-            this.player_div.style.background = 'rgba(0, 0, 0, 0.5)';
+            this.player_div.style.background = 'rgba(255, 255, 255, 0.5)';
             this.player_div.style.border = '4px solid rgba(0, 0, 0, 0.25)';
             this.repair_marker.style.display = 'block';
             this.repair_marker.innerHTML = 'Нет соединения';
+            this.set_bullet(0);
         } else if (this.team_color === 'red') {
             this.player_div.style.background = 'rgba(255, 0, 0, 0.5)';
             this.player_div.style.border = '4px solid #FF0000';
