@@ -1,6 +1,6 @@
 // const DataUrl = "http://127.0.0.1:5555/?target=get&type_command=player&command=visualization&param=0"
-const DataUrl = "http://10.10.12.48:31222/?target=get&type_command=player&command=visualization&param=0"
-// const DataUrl = "http://arena.geoscan.aero/?target=get&type_command=player&command=visualization&param=0"
+const DataUrl = "http://10.10.33.15:31222/?target=get&type_command=player&command=visualization&param=0"
+// const DataUrl = "https://arena.geoscan.aero/game?target=get&type_command=player&command=visualization&param=0"
 function start() {
     resize_map();
 

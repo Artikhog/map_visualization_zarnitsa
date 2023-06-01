@@ -12,19 +12,22 @@ class InformationPanel{
     add_panels(blue_players_data, red_players_data) {
         const blue_players_data_array = Object.values(blue_players_data)
         const red_players_data_array = Object.values(red_players_data)
-        for (let i = 0; i < blue_players_data_array.length-1; i++) {
+        for (let i = 0; i < 4; i++) {
             this.player_panels.push(new Player_Panel('blue', i))
         }
-        for (let i = 0; i < red_players_data_array.length-1; i++) {
+        for (let i = 0; i < 4; i++) {
             this.player_panels.push(new Player_Panel('red', i))
         }
+        console.log(this.player_panels)
     }
     update_panels(blue_players_data, red_players_data) {
         const blue_players_data_array = Object.values(blue_players_data)
         const red_players_data_array = Object.values(red_players_data)
-        const panels_data = blue_players_data_array.concat(red_players_data_array)
-        for (let i = 0; i < panels_data.length; i++) {
-            this.player_panels[i].set_data(panels_data[i])
+        for (let i = 0; i < 4; i++) {
+            this.player_panels[i].set_data(blue_players_data_array[i])
+        }
+        for (let i = 0; i < 4; i++) {
+            this.player_panels[i+4].set_data(red_players_data_array[i])
         }
     }
 }
@@ -42,22 +45,36 @@ class Player_Panel{
     }
     set_data(player_data) {
         this.points.innerText = `Баллы: ${player_data.balls}`;
-        this.set_drone(player_data.name_object_controll);
+        this.set_drone(player_data.name_object_controll, player_data.is_connected);
         this.set_bullet(player_data.bullet);
-        this.set_box(player_data.color_cargo);
-        this.set_repair(player_data.is_repair)
+        this.set_box(player_data.color_cargo, player_data.is_cargo);
+        this.set_repair(player_data.repair)
     }
-    set_drone(type) {
-        switch (type) {
-            case 'TestObject':
-                this.drone_image.src = `${directory_path}${this.team_color}_drone.png`
-                break;
-            case 'EduBotObject':
-                this.drone_image.src = `${directory_path}${this.team_color}_car.png`
-                break;
-            case 'PioneerObject':
-                this.drone_image.src = `${directory_path}${this.team_color}_drone.png`
-                break;
+    set_drone(type, is_connected) {
+        if (is_connected) {
+            switch (type) {
+                case 'TestObject':
+                    this.drone_image.src = `${directory_path}${this.team_color}_drone.png`
+                    break;
+                case 'EduBotObject':
+                    this.drone_image.src = `${directory_path}${this.team_color}_car.png`
+                    break;
+                case 'PioneerObject':
+                    this.drone_image.src = `${directory_path}${this.team_color}_drone.png`
+                    break;
+            }
+        } else {
+            switch (type) {
+                case 'TestObject':
+                    this.drone_image.src = `${directory_path}blocked_drone.png`
+                    break;
+                case 'EduBotObject':
+                    this.drone_image.src = `${directory_path}blocked_car.png`
+                    break;
+                case 'PioneerObject':
+                    this.drone_image.src = `${directory_path}blocked_drone.png`
+                    break;
+            }
         }
     }
     set_bullet(bullet_number) {
@@ -73,6 +90,7 @@ class Player_Panel{
         else {
             this.box_image.style.display = "none";
         }
+        console.log(is_cargo)
     }
     set_repair(is_repair) {
         if (is_repair) {

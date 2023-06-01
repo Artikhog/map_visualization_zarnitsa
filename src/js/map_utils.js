@@ -222,7 +222,7 @@ class Map{
             }
         });
         const red_moving_objects_array = Object.values(red_players_data);
-        let red_move_objects_i = blue_moving_objects_array.length;
+        let red_move_objects_i = 4
         red_moving_objects_array.forEach(element => {
             switch (element.name_object_controll) {
                 case "TestObject":
@@ -239,7 +239,6 @@ class Map{
                     break;
             }
         });
-        console.log(red_moving_objects_array)
     }
 }
 
